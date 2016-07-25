@@ -1,13 +1,12 @@
-/* eslint-disable */
 import React from 'react';
 import Face from './Face';
 import Index from './Index';
 import Loading from './Loading';
 import Login from './Login';
+import custom from '../../custom/index';
 import { Stack } from 'react-super-components';
 import { Provider } from 'react-redux';
 import store from '../store';
-import custom from '../../custom/index';
 
 class App extends React.Component {
   render() {
@@ -24,15 +23,8 @@ class App extends React.Component {
   }
 }
 ;
-let CustomApp = App;
 
-if (custom['components/App']) {
-  CustomApp = custom['components/App'](App, {
-    Face,
-    Index,
-    Loading,
-    Login,
-  });
-}
+const customize = custom['components/App'] || ((x) => x);
+const AppWithCustom = customize(App);
 
-export default CustomApp;
+export default AppWithCustom;

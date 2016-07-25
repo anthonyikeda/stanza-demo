@@ -1,7 +1,7 @@
-/* eslint-disable */
 import React from 'react';
 import { connect as reduxConnect } from 'react-redux';
 import action from '../action-creators/index';
+import custom from '../../custom/index';
 
 class Login extends React.Component {
   render() {
@@ -73,4 +73,7 @@ const LoginWithRedux = reduxConnect(
   }
 )(Login);
 
-export default LoginWithRedux;
+const customize = custom['components/Login'] || ((x) => x);
+const LoginWithReduxWithCustom = customize(LoginWithRedux);
+
+export default LoginWithReduxWithCustom;

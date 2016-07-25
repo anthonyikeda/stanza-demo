@@ -1,4 +1,3 @@
-/* eslint-disable */
 import face from './face/index';
 import index from './index/index';
 import loading from './loading/index';

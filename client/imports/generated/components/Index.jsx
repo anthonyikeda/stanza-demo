@@ -1,5 +1,5 @@
-/* eslint-disable */
 import React from 'react';
+import custom from '../../custom/index';
 
 class Index extends React.Component {
   render() {
@@ -14,4 +14,7 @@ class Index extends React.Component {
 }
 ;
 
-export default Index;
+const customize = custom['components/Index'] || ((x) => x);
+const IndexWithCustom = customize(Index);
+
+export default IndexWithCustom;

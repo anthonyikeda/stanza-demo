@@ -1,5 +1,5 @@
-/* eslint-disable */
 import React from 'react';
+import custom from '../../custom/index';
 
 class Loading extends React.Component {
   render() {
@@ -14,4 +14,7 @@ class Loading extends React.Component {
 }
 ;
 
-export default Loading;
+const customize = custom['components/Loading'] || ((x) => x);
+const LoadingWithCustom = customize(Loading);
+
+export default LoadingWithCustom;

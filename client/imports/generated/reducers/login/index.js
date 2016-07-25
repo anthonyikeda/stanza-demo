@@ -1,4 +1,3 @@
-/* eslint-disable */
 import email from './email';
 import name from './name';
 import { combineReducers } from 'redux';
