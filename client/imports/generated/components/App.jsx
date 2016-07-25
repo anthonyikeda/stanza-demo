@@ -1,15 +1,38 @@
 /* eslint-disable */
-import React from 'react'
+import React from 'react';
+import Face from './Face';
+import Index from './Index';
+import Loading from './Loading';
+import Login from './Login';
+import { Stack } from 'react-super-components';
+import { Provider } from 'react-redux';
+import store from '../store';
 import custom from '../../custom/index';
 
-export default class App extends React.Component {
-  render () {
+class App extends React.Component {
+  render() {
     return (
-      <div>FIND ME AT client/imports/generated/components/App.jsx</div>
-    )
+      <Provider store={store}>
+        <Stack indexKey='path' activeLayerIndex={this.props.path}>
+          <Face index='face' />
+          <Index index='' />
+          <Loading index='loading' />
+          <Login index='login' />
+        </Stack>
+      </Provider>
+      );
   }
 }
+;
+let CustomApp = App;
 
-const customize = custom['components/App'] || ((x) =>x);
+if (custom['components/App']) {
+  CustomApp = custom['components/App'](App, {
+    Face,
+    Index,
+    Loading,
+    Login,
+  });
+}
 
-export default customize(App);
+export default CustomApp;
