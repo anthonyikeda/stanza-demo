@@ -18,11 +18,11 @@ class Login extends React.Component {
               </label>
               <input data-name='Name'
                 id='name'
-                maxlength='256'
                 name='name'
                 placeholder='Enter your name'
                 type='text'
                 className='w-input'
+                maxLength='256'
                 value={this.props['state.login.name']}
                 onChange={this.props['action.login.changeName']} />
               <label htmlFor='email'>
@@ -30,12 +30,12 @@ class Login extends React.Component {
               </label>
               <input data-name='Email'
                 id='email'
-                maxlength='256'
                 name='email'
                 placeholder='Enter your email address'
                 required='required'
                 type='email'
                 className='w-input'
+                maxLength='256'
                 value={this.props['state.login.email']}
                 onChange={this.props['action.login.changeEmail']} />
               <input data-wait='Please wait...'
