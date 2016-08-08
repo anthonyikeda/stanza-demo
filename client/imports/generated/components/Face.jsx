@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect as reduxConnect } from 'react-redux';
 import custom from '../../custom/index';
 
 class Face extends React.Component {
@@ -8,7 +7,7 @@ class Face extends React.Component {
       <div>
         <div className='background'>
           <h1>face :) hidden</h1>
-          <h2>{this.props['state.face.name']}</h2>
+          <h2 data-component-redux-value='name'>dynamic value</h2>
         </div>
       </div>
       );
@@ -16,14 +15,7 @@ class Face extends React.Component {
 }
 ;
 
-const FaceWithRedux = reduxConnect(
-  (state) => ({
-    'state.face.name': state.face.name
-  }),
-  {}
-)(Face);
-
 const customize = custom['components/Face'] || ((x) => x);
-const FaceWithReduxWithCustom = customize(FaceWithRedux);
+const FaceWithCustom = customize(Face);
 
-export default FaceWithReduxWithCustom;
+export default FaceWithCustom;
